@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApiJuanRuiz.Entities
 {
@@ -14,6 +15,9 @@ namespace ApiJuanRuiz.Entities
         public int Documento { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+
+        //[StringLength(2, ErrorMessage = "Longitud Supera")]
+
         public int Edad { get; set; }
 
         public int IdCasa { get; set; }

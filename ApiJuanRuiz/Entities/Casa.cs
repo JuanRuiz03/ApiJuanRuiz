@@ -10,6 +10,8 @@ namespace ApiJuanRuiz.Entities
     {
 
         public int Id { get; set; }
+
+        
         public string NombreCasa { get; set; }
 
 
