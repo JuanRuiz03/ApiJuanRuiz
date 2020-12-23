@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 
@@ -21,17 +23,16 @@ namespace ApiJuanRuiz.Controllers
         }
 
 
-
+        //Metodo para Consultar 
        
         [HttpGet]
-        
         public IActionResult Ver()
         {
           return Ok(_inscripcionServicio.VerListado());
             
         }
 
-        
+        //Metodo para Consultar por Id
         [HttpGet("{Id}")]
         
         public IActionResult PorID(int Id)
@@ -40,7 +41,7 @@ namespace ApiJuanRuiz.Controllers
         }
 
 
-        
+        //Metodo para Crear una nueva Inscripcion 
         [HttpPost]
         
         public IActionResult Agregar([FromBody] Inscripcion Agregar)
@@ -56,13 +57,8 @@ namespace ApiJuanRuiz.Controllers
             }
         }
 
-
-
-
-
-        
+        //Metodo para Editar
         [HttpPut("{Id}")]
-        
         public IActionResult Editar([FromBody] Inscripcion Editar)
         {
             if (_inscripcionServicio.Editar(Editar))
@@ -75,7 +71,7 @@ namespace ApiJuanRuiz.Controllers
             }
         }
 
-
+        //Metodo para Eliminar por un id 
         [HttpDelete("{Id}")]
       
         public IActionResult Eliminar(int Id)
