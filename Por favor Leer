@@ -15,3 +15,7 @@ Muchas gracias
 Espero poder pertenecer a esta gran compañia y aportar mis conocimientos y de igual forma estar  abierto a nuevos aprendizajes en pro de l desarrollo de la compañia,de igual forma estoy atento a cualquier consejo.
 
 El nombre del archivo .json postamn Es Api Prueba Backend.postman_collection
+
+NOTA :
+
+No se incluye lo relacionado con base de datos , ya que para esta api se utilizaron migraciones para el modelamiento de datos pero de igual forma en el appsettings.json se encuentra la conexion por tal motivo se encuentra el nombre de la base y el servidor local al cual estaba conectado. 
