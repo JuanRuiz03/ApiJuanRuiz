@@ -1,4 +1,5 @@
 using ApiJuanRuiz.DBContext;
+using ApiJuanRuiz.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,14 +33,21 @@ namespace ApiJuanRuiz
             services.AddDbContext<InscripcionDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
             services.AddControllers();
-            services.AddSwaggerGen(x => {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                x.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlPath);
             });
-            //services.AddTransient<InscripcionService, InscripcionService>();
-        }
 
+            services.AddTransient<InscripcionService, InscripcionService>();
+
+
+
+           
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -46,12 +55,7 @@ namespace ApiJuanRuiz
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseSwagger();
-
-            app.UseSwaggerUI(x =>
-                x.SwaggerEndpoint("v1/swagger.json", "API Prueba")
-            );
-
+            
 
             app.UseRouting();
 
@@ -60,6 +64,15 @@ namespace ApiJuanRuiz
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
         }
     }
