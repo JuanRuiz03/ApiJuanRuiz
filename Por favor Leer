@@ -1,0 +1,15 @@
+Buenos Dias
+Mi nombre es Juan Nicolas Buitrago y esta es mi api la cual esta encargada de la  CRUD perteneciente a la inscripciona a las casas  de HOGWARTS
+
+Es importamte aclarar que se utilizo como base de datos el motor  sql server , por este motivo  para el metodo AGREGAR se recomienda lo siguiente:
+
+1-Si se esta probando la respuesta  del api para este metodo(POST ) desde POstam se  recomienda no insertar nada en el campo de Id y Nombre casa 
+2-Para poder visualizar la casa a la cual quiere pertenecer se recomeinda desde base de datos hacer la insercion y luego por el metodo GET Comprobar la inscripcion 
+
+Otras recomendaciones 
+
+1-El api se encuentra implementada en un local HOST por etse motivo  se recomienda ser publicada y revisada de iual forma para tener una mejor experienciA
+2-Se adiciona  a esta entrega un documento  .JSON  en el cual se encuentra exportada una coleccion de postamn  con las url de los metodos del api y asi brindar un ayuda en la revion 
+
+Muchas gracias
+Espero poder pertenecer a esta gran compañia y aportar mis conocimientos y de igual forma estar  abierto a nuevos aprendizajes en pro de l desarrollo de la compañia,de igual forma estoy atento a cualquier consejo.
